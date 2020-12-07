@@ -10,7 +10,7 @@ if memo_type == 1
   content = gets.chomp
   CSV.open("#{title}.csv", "w") do |csv| 
     csv << ["#{content}"]
-  end
+  end 
 elsif memo_type == 2
   p ("書き換えるファイル名を入力してください")
   filename = gets.chomp
