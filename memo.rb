@@ -7,18 +7,18 @@ if memo_type == 1
   puts "拡張子を除いたファイル名を入力してください"
   title = gets.chomp
   puts "メモしたい内容を記入してください\n完了したらCtrl + Dを押します"
-  content = gets.chomp
-  CSV.open("#{title}.csv", "w") do |csv| 
-    csv << ["#{content}"]
-  end 
+  content = readlines(chomp: true)
+    CSV.open("#{title}.csv", "w") do |csv| 
+      csv << content
+    end
 elsif memo_type == 2
   puts "書き換えるファイル名を入力してください"
   filename = gets.chomp
   puts "変更する内容を記入してください\n完了したらCtrl + Dを押します"
-  revised_content = gets.chomp
+  revised_content = readlines(chomp: true)
   CSV.open("#{filename}.csv","a") do |csva|
-    csva << ["#{revised_content}"]
+    csva << revised_content
   end
 else
-  p "1か2を入力してください"
+  puts "1か2を入力してください"
 end
